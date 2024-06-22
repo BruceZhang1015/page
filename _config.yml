@@ -1,0 +1,11 @@
+
+title: A TITLE WILL BE HERE; A TITLE WILL BE HERE; A TITLE WILL BE HERE
+
+# Theme settings
+remote_theme: cayman
+plugins:
+  - jekyll-remote-theme
+
+# Additional configurations
+baseurl: "/portfolio" # Adjust to your site's base URL if necessary
+#url: "https://brucezhang1015.github.io" # Your site URL
