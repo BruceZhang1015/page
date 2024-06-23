@@ -8,15 +8,28 @@
 </head>
 <body>
     <header id="header">
-        <h1 id="title">Welcome to Bruce's Portfolio</h1>
+        <nav>
+            <ul id="nav-tabs">
+                <li class="nav-item active" data-target="overview">Overview</li>
+                <li class="nav-item" data-target="projects">Projects</li>
+                <li class="nav-item" data-target="contact">Contact</li>
+            </ul>
+        </nav>
     </header>
     <main>
-        <p>Scroll down to see the effect...</p>
-        <!-- Add more content here to make the page scrollable -->
-        <div class="content">
-            <!-- Large content to enable scrolling -->
-        </div>
+        <section id="overview" class="content-section active">
+            <h2>Overview</h2>
+            <p>Welcome to the overview section!</p>
+        </section>
+        <section id="projects" class="content-section">
+            <h2>Projects</h2>
+            <p>Here are my projects...</p>
+        </section>
+        <section id="contact" class="content-section">
+            <h2>Contact</h2>
+            <p>Get in touch!</p>
+        </section>
     </main>
-    <script src="/portfolio/assets/scroll-effect.js"></script>
+    <script src="/portfolio/assets/tabs.js"></script>
 </body>
 </html>
