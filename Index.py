@@ -115,6 +115,7 @@ with col3:
 
 
 
+
 # -----------------------------------------
 # Resume Viewer (toggle section)
 # -----------------------------------------
@@ -122,14 +123,16 @@ if st.session_state.get("show_resume", False):
 
     st.markdown("### 📄 My Resume")
 
-    # PDF path
-    pdf_path = "assets/resume.pdf"   # <-- 换成你自己的路径
+    # 你从 Google Drive 得到的 file ID
+    file_id = "1LIbYnNLsmRuMlXo_jXKyll7IgIuvsb5J"   # 例如 "1AbCDefGhIJlmNOP12345"
 
-    # Read PDF as bytes for download + HTML embed
-    with open(pdf_path, "rb") as f:
+    # Google Drive embed 预览链接
+    pdf_url = f"https://drive.google.com/file/d/{file_id}/preview"
+
+    # 下载按钮（仍然可用）
+    with open("assets/resume.pdf", "rb") as f:
         pdf_bytes = f.read()
 
-    # Download button
     st.download_button(
         label="Download Resume",
         data=pdf_bytes,
@@ -137,13 +140,15 @@ if st.session_state.get("show_resume", False):
         mime="application/pdf",
     )
 
-    # PDF Viewer
-    base64_pdf = base64.b64encode(pdf_bytes).decode('utf-8')
-    pdf_display = f"""
+    # 在页面中展示 PDF（不会被 Chrome 阻止）
+    st.components.v1.html(
+        f"""
         <iframe 
-            src="data:application/pdf;base64,{base64_pdf}" 
+            src="{pdf_url}" 
             width="100%" height="900px" 
-            type="application/pdf">
+            style="border:none;">
         </iframe>
-    """
-    st.components.v1.html(pdf_display, height=900)
+        """,
+        height=900,
+    )
+

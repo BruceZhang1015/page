@@ -1,0 +1,57 @@
+# ----------------------------------------
+# Python
+# ----------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.so
+*.dll
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Cache / temp
+*.log
+*.tmp
+*.swp
+.DS_Store
+
+# Streamlit
+.streamlit/config.toml
+.streamlit/state.json
+
+# Secrets (very important)
+.streamlit/secrets.toml
+
+# Byte-compiled
+*.pickle
+*.joblib
+
+# OS-specific
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Uploaded files
+uploads/
+assets/*.tmp
+
+# PDF cache if any
+*.pdf.cache

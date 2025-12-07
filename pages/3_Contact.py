@@ -1,4 +1,18 @@
 import streamlit as st
+import requests
+import json
+import os
+from pymongo import MongoClient
+from datetime import datetime
+
+# MongoDB connection (from secrets.toml)
+client = MongoClient(st.secrets["MONGO_URI"])
+db = client["portfolio_db"]
+messages_collection = db["messages"]
+
+RESEND_API_KEY = st.secrets["RESEND_API_KEY"]
+
+
 
 # ---------------------------------------------------------
 # Page Config
@@ -8,6 +22,29 @@ st.set_page_config(
     page_icon="✉️",
     layout="wide"
 )
+
+def send_email_notification(name, email, message):
+    url = "https://api.resend.com/emails"
+    headers = {
+        "Authorization": f"Bearer {RESEND_API_KEY}",
+        "Content-Type": "application/json"
+    }
+
+    data = {
+        "from": "Portfolio Contact <onboarding@resend.dev>",
+        "to": ["yz8063@nyu.edu"],  # ← 你的真实 email
+        "subject": f"New message from {name}",
+        "html": f"""
+            <p><strong>Name:</strong> {name}</p>
+            <p><strong>Email:</strong> {email}</p>
+            <p><strong>Message:</strong></p>
+            <p>{message}</p>
+        """
+    }
+
+    response = requests.post(url, headers=headers, data=json.dumps(data))
+    return response
+
 
 # ---------------------------------------------------------
 # CSS Styling
@@ -90,4 +127,17 @@ with st.form("contact_form"):
 
     submitted = st.form_submit_button("Send")
     if submitted:
+    # Save to MongoDB
+        doc = {
+            "name": name,
+            "email": email,
+            "message": message,
+            "timestamp": datetime.utcnow()
+        }
+        messages_collection.insert_one(doc)
+
+        # Send email notification
+        send_email_notification(name, email, message)
+
         st.success("Thanks for reaching out! I’ll get back to you shortly.")
+
