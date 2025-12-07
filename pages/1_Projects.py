@@ -86,8 +86,8 @@ project_card(
          "featuring diagram generation, automated scoring, confidence intervals, and dataset management.",
     tech_list=["Python", "Streamlit", "MongoDB", "Plotly", "LLMs"],
     links={
-        "GitHub": "https://github.com/yourrepo",
-        "Live Demo": "https://yourstreamlitlink",
+        "GitHub": "https://github.com/mathlabsNYU/mathlabs",
+        "Live Demo": "https://mathlabs.streamlit.app/",
     }
 )
 
@@ -97,7 +97,7 @@ project_card(
          "LLMs, geospatial heuristics, and sequence alignment (SAM).",
     tech_list=["Python", "GeoPandas", "LLMs", "Trajectory Modeling"],
     links={
-        "GitHub": "https://github.com/yourrepo",
+        "Notebook": "https://colab.research.google.com/drive/1GoaJVGJKYqYZPMR2WTfadK0FdsIfReBY?usp=sharing",
     }
 )
 

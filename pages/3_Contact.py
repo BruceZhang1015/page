@@ -6,7 +6,7 @@ import streamlit as st
 st.set_page_config(
     page_title="Contact | Bruce Zhang",
     page_icon="✉️",
-    layout="centered"
+    layout="wide"
 )
 
 # ---------------------------------------------------------
@@ -49,8 +49,7 @@ st.markdown("<div class='contact-title'>Get In Touch</div>", unsafe_allow_html=T
 
 st.write(
     """
-If you'd like to discuss research, data science, LLM evaluation,  
-or potential collaboration opportunities, feel free to reach out!
+Please feel free to reach out for any questions or collaboration/job opportunities!
 """
 )
 
@@ -59,7 +58,7 @@ or potential collaboration opportunities, feel free to reach out!
 # ---------------------------------------------------------
 st.markdown("<div class='contact-item'><span class='label'>Email:</span> yz8063@nyu.edu</div>", unsafe_allow_html=True)
 st.markdown("<div class='contact-item'><span class='label'>LinkedIn:</span> <a href='https://www.linkedin.com/in/bruce-zhang-6a873421a/' target='_blank'>linkedin.com/in/bruce-zhang-6a873421a/</a></div>", unsafe_allow_html=True)
-st.markdown("<div class='contact-item'><span class='label'>GitHub:</span> <a href='https://github.com/yourgithub' target='_blank'>github.com/yourgithub</a></div>", unsafe_allow_html=True)
+st.markdown("<div class='contact-item'><span class='label'>GitHub:</span> <a href='https://github.com/BruceZhang1015' target='_blank'>github.com/BruceZhang1015</a></div>", unsafe_allow_html=True)
 
 st.write("")
 st.write("")
@@ -67,14 +66,13 @@ st.write("")
 # ---------------------------------------------------------
 # Buttons
 # ---------------------------------------------------------
-col1, col2, col3 = st.columns(3)
+col2, col3 = st.columns(2)
 
-with col1:
-    st.link_button("Email", "mailto:bruce.zhang@example.com")
+
 with col2:
-    st.link_button("LinkedIn", "https://linkedin.com/in/yourprofile")
+    st.link_button("LinkedIn", "https://www.linkedin.com/in/bruce-zhang-6a873421a/")
 with col3:
-    st.link_button("GitHub", "https://github.com/yourgithub")
+    st.link_button("GitHub", "https://github.com/BruceZhang1015")
 
 st.markdown("</div>", unsafe_allow_html=True)
 
