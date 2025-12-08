@@ -172,7 +172,7 @@ project_card(
 
 
 project_card(
-    title="CTR Prediction for ",
+    title="CTR Prediction for Online Advertising and Investigation of Synthetic Data Utility",
     desc="Investigates how feature selection, down-sampling, and data permutation affect the downstream utility of synthetically generated data from CTGAN in highly imbalanced classification tasks.",
     tech_list=["Python", "Pandas", "Scikit-learn", "CTGAN"],
     links={
@@ -182,35 +182,39 @@ project_card(
 
 
 project_card(
-    title="Data Engineering Pipeline for Geospatial Data",
+    title="Data Engineering Pipeline for Geospatial & Activity Data",
     desc="A distributed ETL pipeline for cleaning, enriching, and normalizing multi-week location datasets "
-         "with MySQL + GeoJSON + zoning integration.",
-    tech_list=["SQL", "MariaDB", "Airflow (optional)", "Pandas"],
-    links={
-        "Report": "https://example.com",
-    }
+         "with MySQL + GeoJSON + zoning integration. Following is an interactive visualization of the activity distributions across the day.",
+    tech_list=["SQL", "MariaDB", "Pandas", "d3blocks"],
+    
 )
 
+
+# Load HTML
+with open("movingbubbles.html", "r", encoding="utf-8") as f:
+    html_code = f.read()
+
+st.components.v1.html(html_code, height=800, scrolling=True)
 
 
 # ---------------------------------------------------------
 # Tableau Section
 # ---------------------------------------------------------
-st.markdown("---")
-st.subheader("📊 Tableau Visualizations")
+#st.markdown("---")
+#st.subheader("📊 Tableau Visualizations")
 
-st.write("Below is an embedded Tableau workbook showcasing one of my interactive dashboards.")
+#st.write("Below is an embedded Tableau workbook showcasing one of my interactive dashboards.")
 
-tableau_url = "https://public.tableau.com/views/YourWorkbookName/YourSheetName?:embed=y&:showVizHome=no"
+#tableau_url = "https://public.tableau.com/views/YourWorkbookName/YourSheetName?:embed=y&:showVizHome=no"
 
-st.components.v1.html(
-    f"""
-    <iframe 
-        src="{tableau_url}" 
-        width="100%" 
-        height="900px" 
-        style="border: none;">
-    </iframe>
-    """,
-    height=900,
-)
+#st.components.v1.html(
+#    f"""
+#    <iframe 
+#           src="{tableau_url}" 
+#       width="100%" 
+#        height="900px" 
+#        style="border: none;">
+#    </iframe>
+#    """,
+#    height=900,
+#)
